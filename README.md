@@ -108,35 +108,34 @@ Of course, this book is also very suitable as a reference for Pytorch's tool man
 
 **Click the blue title of the learning content to enter the chapter. **
 
-
-|日期 | 学习内容                                                       | 内容难度   | 预计学习时间 | 更新状态|
-|----:|:--------------------------------------------------------------|-----------:|----------:|-----:|
-|&nbsp;|[**一、Pytorch的建模流程**](./一、Pytorch的建模流程.md)    |⭐️   |   0hour   |✅    |
-|day1 | [1-1,结构化数据建模流程范例](./1-1,结构化数据建模流程范例.md)    | ⭐️⭐️⭐️ |   1hour    |✅    |
-|day2 | [1-2,图片数据建模流程范例](./1-2,图片数据建模流程范例.md)    | ⭐️⭐️⭐️⭐️  |   2hour    | ✅   |
-|day3 | [1-3,文本数据建模流程范例](./1-3,文本数据建模流程范例.md)   | ⭐️⭐️⭐️⭐️⭐️  |   2hour    | ✅  |
-|day4 | [1-4,时间序列数据建模流程范例](./1-4,时间序列数据建模流程范例.md)   | ⭐️⭐️⭐️⭐️⭐️  |   2hour    | ✅   |
-|&nbsp; |[**二、Pytorch的核心概念**](./二、Pytorch的核心概念.md)  | ⭐️  |  0hour |✅  |
-|day5 |  [2-1,张量数据结构](./2-1,张量数据结构.md)  | ⭐️⭐️⭐️⭐️   |   1hour    | ✅   |
-|day6 |  [2-2,自动微分机制](./2-2,自动微分机制.md)  | ⭐️⭐️⭐️   |   1hour    | ✅  |
-|day7 |  [2-3,动态计算图](./2-3,动态计算图.md)  | ⭐️⭐️⭐️⭐️⭐️   |   2hour    | ✅   |
-|&nbsp; |[**三、Pytorch的层次结构**](./三、Pytorch的层次结构.md) |   ⭐️  |  0hour   | ✅  |
-|day8 |  [3-1,低阶API示范](./3-1,低阶API示范.md)   | ⭐️⭐️⭐️⭐️   |   1hour    | ✅  |
-|day9 |  [3-2,中阶API示范](./3-2,中阶API示范.md)   | ⭐️⭐️⭐️   |  1hour    |✅  |
-|day10 | [3-3,高阶API示范](./3-3,高阶API示范.md)  | ⭐️⭐️⭐️  |   1hour    |✅ |
-|&nbsp; |[**四、Pytorch的低阶API**](./四、Pytorch的低阶API.md) |⭐️    | 0hour| ✅ |
-|day11|  [4-1,张量的结构操作](./4-1,张量的结构操作.md)  | ⭐️⭐️⭐️⭐️⭐️   |   2hour    | ✅ |
-|day12|  [4-2,张量的数学运算](./4-2,张量的数学运算.md)   | ⭐️⭐️⭐️⭐️   |   1hour    |✅ |
-|day13|  [4-3,nn.functional和nn.Module](./4-3,nn.functional和nn.Module.md)  | ⭐️⭐️⭐️⭐️   |   1hour    |✅ |
-|&nbsp; |[**五、Pytorch的中阶API**](./五、Pytorch的中阶API.md) |  ⭐️  | 0hour|✅ |
-|day14|  [5-1,Dataset和DataLoader](./5-1,Dataset和DataLoader.md)   | ⭐️⭐️⭐️⭐️⭐️   |   2hour    | ✅   |
-|day15|  [5-2,模型层](./5-3,模型层.md)  | ⭐️⭐️⭐️   |   1hour    |✅  |
-|day16|  [5-3,损失函数](./5-4,损失函数.md)    | ⭐️⭐️⭐️   |   1hour    |✅   |
-|day17|  [5-4,TensorBoard可视化](./5-4,TensorBoard可视化.md)    | ⭐️⭐️⭐️   |   1hour    | ✅   |
-|&nbsp; |[**六、Pytorch的高阶API**](./六、Pytorch的高阶API.md)|    ⭐️ | 0hour|✅  |
-|day18|  [6-1,构建模型的3种方法](./6-1,构建模型的3种方法.md)   | ⭐️⭐️⭐️⭐️    |   1hour    |✅   |
-|day19|  [6-2,训练模型的3种方法](./6-2,训练模型的3种方法.md)  | ⭐️⭐️⭐️⭐️   |   1hour    | ✅  |
-|day20|  [6-3,使用GPU训练模型](./6-3,使用GPU训练模型.md)    | ⭐️⭐️⭐️⭐️    |   1hour    | ✅  |
+| Date | Learning Content | Content Difficulty | Estimated Learning Time | Update Status|
+|----:|:------------------------------------------ --------------------|-----------:|----------:|---- -:|
+|&nbsp;|[**一、Pytorch's modeling process**](./一、Pytorch's modeling process.md) |⭐️ | 0hour |✅ |
+|day1 | [1-1,Structured data modeling process example](./1-1,Structured data modeling process example.md) | ⭐️⭐️⭐️ | 1hour |✅ |
+|day2 | [1-2,Picture data modeling process example](./1-2,Picture data modeling process example.md) | ⭐️⭐️⭐️⭐️ | 2hour | ✅ |
+|day3 | [1-3,Text data modeling process example](./1-3,Text data modeling process example.md) | ⭐️⭐️⭐️⭐️⭐️ | 2hour | ✅ |
+|day4 | [1-4,Time series data modeling process example](./1-4,Time series data modeling process example.md) | ⭐️⭐️⭐️⭐️⭐️ | 2hour | ✅ |
+|&nbsp; |[**二. The core concept of Pytorch**](./二. The core concept of Pytorch.md) | ⭐️ | 0hour |✅ |
+|day5 | [2-1,Tensor data structure](./2-1,Tensor data structure.md) | ⭐️⭐️⭐️⭐️ | 1hour | ✅ |
+|day6 | [2-2,Automatic differentiation mechanism](./2-2,Automatic differentiation mechanism.md) | ⭐️⭐️⭐️ | 1hour | ✅ |
+|day7 | [2-3,Dynamic calculation graph](./2-3,Dynamic calculation graph.md) | ⭐️⭐️⭐️⭐️⭐️ | 2hour | ✅ |
+|&nbsp; |[**三. Pytorch hierarchy**](./三, Pytorch hierarchy.md) | ⭐️ | 0hour | ✅ |
+|day8 | [3-1,Low-level API demonstration](./3-1,Low-level API demonstration.md) | ⭐️⭐️⭐️⭐️ | 1hour | ✅ |
+|day9 | [3-2,Intermediate API Demonstration](./3-2,Intermediate API Demonstration.md) | ⭐️⭐️⭐️ | 1hour |✅ |
+|day10 | [3-3,High-level API demonstration](./3-3,High-level API demonstration.md) | ⭐️⭐️⭐️ | 1hour |✅ |
+|&nbsp; |[**四、Pytorch's low-level API**](./四、Pytorch's low-level API.md) |⭐️ | 0hour| ✅ |
+|day11| [4-1, tensor structure operation](./4-1, tensor structure operation.md) | ⭐️⭐️⭐️⭐️⭐️ | 2hour | ✅ |
+|day12| [4-2, tensor mathematical operation](./4-2, tensor mathematical operation.md) | ⭐️⭐️⭐️⭐️ | 1hour |✅ |
+|day13| [4-3,nn.functional and nn.Module](./4-3,nn.functional and nn.Module.md) | ⭐️⭐️⭐️⭐️ | 1hour |✅ |
+|&nbsp; |[**五、Pytorch's Intermediate API**](./五、Pytorch's Intermediate API.md) | ⭐️ | 0hour|✅ |
+|day14| [5-1,Dataset and DataLoader](./5-1,Dataset and DataLoader.md) | ⭐️⭐️⭐️⭐️⭐️ | 2hour | ✅ |
+|day15| [5-2,model layer](./5-3,model layer.md) | ⭐️⭐️⭐️ | 1hour |✅ |
+|day16| [5-3,loss function](./5-4,loss function.md) | ⭐️⭐️⭐️ | 1hour |✅ |
+|day17| [5-4,TensorBoardVisualization](./5-4,TensorBoardVisualization.md) | ⭐️⭐️⭐️ | 1hour | ✅ |
+|&nbsp; |[**六、Pytorch's high-level API**](./六、Pytorch's high-level API.md)| ⭐️ | 0hour|✅ |
+|day18| [6-1,3 ways to build a model](./6-1,3 ways to build a model.md) | ⭐️⭐️⭐️⭐️ | 1hour |✅ |
+|day19| [6-2, 3 ways to train a model](./6-2, 3 ways to train a model.md) | ⭐️⭐️⭐️⭐️ | 1hour | ✅ |
+|day20| [6-3, Use GPU to train model](./6-3, Use GPU to train model.md) | ⭐️⭐️⭐️⭐️ | 1hour | ✅ |
 
 ```python
 
