@@ -294,7 +294,7 @@ plt.legend(["positive","negative"]);
 
 ```
 
-![](./data/3-1-分类数据可视化.png
+![](./data/3-1-分类数据可视化.png)
 
 ```python
 # Build a data pipeline iterator
