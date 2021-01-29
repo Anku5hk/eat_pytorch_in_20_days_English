@@ -1,38 +1,38 @@
-# 5-4,TensorBoard可视化
+# 5-4, TensorBoard visualization
 
-在我们的炼丹过程中，如果能够使用丰富的图像来展示模型的结构，指标的变化，参数的分布，输入的形态等信息，无疑会提升我们对问题的洞察力，并增加许多炼丹的乐趣。
+In our alchemy process, if we can use rich images to show the structure of the model, the change of indicators, the distribution of parameters, the input form and other information, it will undoubtedly enhance our insight into the problem and increase the fun of alchemy.
 
-TensorBoard正是这样一个神奇的炼丹可视化辅助工具。它原是TensorFlow的小弟，但它也能够很好地和Pytorch进行配合。甚至在Pytorch中使用TensorBoard比TensorFlow中使用TensorBoard还要来的更加简单和自然。
+TensorBoard is just such a magical alchemy visualization aid. It was originally the younger brother of TensorFlow, but it can also work well with Pytorch. Even using TensorBoard in Pytorch is easier and more natural than using TensorBoard in TensorFlow.
 
-Pytorch中利用TensorBoard可视化的大概过程如下：
+The approximate process of visualizing using TensorBoard in Pytorch is as follows:
 
-首先在Pytorch中指定一个目录创建一个torch.utils.tensorboard.SummaryWriter日志写入器。
+First specify a directory in Pytorch to create a torch.utils.tensorboard.SummaryWriter log writer.
 
-然后根据需要可视化的信息，利用日志写入器将相应信息日志写入我们指定的目录。
+Then, according to the information that needs to be visualized, use the log writer to write the corresponding information log into the directory we specify.
 
-最后就可以传入日志目录作为参数启动TensorBoard，然后就可以在TensorBoard中愉快地看片了。
+Finally, you can pass in the log directory as a parameter to start TensorBoard, and then you can enjoy watching movies in TensorBoard.
 
-我们主要介绍Pytorch中利用TensorBoard进行如下方面信息的可视化的方法。
+We mainly introduce the method of using TensorBoard to visualize the following information in Pytorch.
 
-* 可视化模型结构： writer.add_graph
+* Visual model structure: writer.add_graph
 
-* 可视化指标变化： writer.add_scalar
+* Visual indicator changes: writer.add_scalar
 
-* 可视化参数分布： writer.add_histogram
+* Visualization parameter distribution: writer.add_histogram
 
-* 可视化原始图像： writer.add_image 或 writer.add_images
+* Visualize the original image: writer.add_image or writer.add_images
 
-* 可视化人工绘图： writer.add_figure
+* Visual manual drawing: writer.add_figure
 
 
 ```python
 
 ```
 
-### 一，可视化模型结构
+### One, visual model structure
 
 ```python
-import torch 
+import torch
 from torch import nn
 from torch.utils.tensorboard import SummaryWriter
 from torchkeras import Model,summary
@@ -92,30 +92,30 @@ summary(net,input_shape= (3,32,32))
 ```
 
 ```
-----------------------------------------------------------------
-        Layer (type)               Output Shape         Param #
-================================================================
-            Conv2d-1           [-1, 32, 30, 30]             896
-         MaxPool2d-2           [-1, 32, 15, 15]               0
-            Conv2d-3           [-1, 64, 11, 11]          51,264
-         MaxPool2d-4             [-1, 64, 5, 5]               0
-         Dropout2d-5             [-1, 64, 5, 5]               0
- AdaptiveMaxPool2d-6             [-1, 64, 1, 1]               0
-           Flatten-7                   [-1, 64]               0
-            Linear-8                   [-1, 32]           2,080
-              ReLU-9                   [-1, 32]               0
-           Linear-10                    [-1, 1]              33
-          Sigmoid-11                    [-1, 1]               0
-================================================================
+-------------------------------------------------- --------------
+        Layer (type) Output Shape Param #
+================================================= ==============
+            Conv2d-1 [-1, 32, 30, 30] 896
+         MaxPool2d-2 [-1, 32, 15, 15] 0
+            Conv2d-3 [-1, 64, 11, 11] 51,264
+         MaxPool2d-4 [-1, 64, 5, 5] 0
+         Dropout2d-5 [-1, 64, 5, 5] 0
+ AdaptiveMaxPool2d-6 [-1, 64, 1, 1] 0
+           Flatten-7 [-1, 64] 0
+            Linear-8 [-1, 32] 2,080
+              ReLU-9 [-1, 32] 0
+           Linear-10 [-1, 1] 33
+          Sigmoid-11 [-1, 1] 0
+================================================= ==============
 Total params: 54,273
 Trainable params: 54,273
 Non-trainable params: 0
-----------------------------------------------------------------
+-------------------------------------------------- --------------
 Input size (MB): 0.011719
 Forward/backward pass size (MB): 0.359634
 Params size (MB): 0.207035
 Estimated Total Size (MB): 0.578388
-----------------------------------------------------------------
+-------------------------------------------------- --------------
 ```
 
 ```python
@@ -131,15 +131,15 @@ writer.close()
 
 ```python
 from tensorboard import notebook
-#查看启动的tensorboard程序
-notebook.list() 
+#View the launched tensorboard program
+notebook.list()
 ```
 
 ```python
-#启动tensorboard程序
+#Start the tensorboard program
 notebook.start("--logdir ./data/tensorboard")
-#等价于在命令行中执行 tensorboard --logdir ./data/tensorboard
-#可以在浏览器中打开 http://localhost:6006/ 查看
+#Equivalent to executing tensorboard --logdir ./data/tensorboard on the command line
+#Can be opened in the browser http://localhost:6006/ view
 ```
 
 ![](./data/5-4-graph结构.png)
@@ -148,23 +148,23 @@ notebook.start("--logdir ./data/tensorboard")
 
 ```
 
-### 二，可视化指标变化
+### Second, visual indicator changes
 
 
-有时候在训练过程中，如果能够实时动态地查看loss和各种metric的变化曲线，那么无疑可以帮助我们更加直观地了解模型的训练情况。
+Sometimes in the training process, if we can dynamically view the change curve of loss and various metrics in real time, it will undoubtedly help us to understand the training situation of the model more intuitively.
 
-注意，writer.add_scalar仅能对标量的值的变化进行可视化。因此它一般用于对loss和metric的变化进行可视化分析。
+Note that writer.add_scalar can only visualize changes in the value of a scalar. Therefore, it is generally used for visual analysis of changes in loss and metric.
 
 
 ```python
-import numpy as np 
-import torch 
+import numpy as np
+import torch
 from torch.utils.tensorboard import SummaryWriter
 
 
 
-# f(x) = a*x**2 + b*x + c的最小值
-x = torch.tensor(0.0,requires_grad = True) # x需要被求导
+# f(x) = a*x**2 + b*x + the minimum value of c
+x = torch.tensor(0.0,requires_grad = True) # x needs to be differentiated
 a = torch.tensor(1.0)
 b = torch.tensor(-2.0)
 c = torch.tensor(1.0)
@@ -173,7 +173,7 @@ optimizer = torch.optim.SGD(params=[x],lr = 0.01)
 
 
 def f(x):
-    result = a*torch.pow(x,2) + b*x + c 
+    result = a*torch.pow(x,2) + b*x + c
     return(result)
 
 writer = SummaryWriter('./data/tensorboard')
@@ -182,8 +182,8 @@ for i in range(500):
     y = f(x)
     y.backward()
     optimizer.step()
-    writer.add_scalar("x",x.item(),i) #日志中记录x在第step i 的值
-    writer.add_scalar("y",y.item(),i) #日志中记录y在第step i 的值
+    writer.add_scalar("x",x.item(),i) #Record the value of x in the step i in the log
+    writer.add_scalar("y",y.item(),i) #Record the value of y in the step i in the log
 
 writer.close()
     
@@ -191,9 +191,8 @@ print("y=",f(x).data,";","x=",x.data)
 ```
 
 ```
-y= tensor(0.) ; x= tensor(1.0000)
+y = tensor(0.); x = tensor(1.0000)
 ```
-
 
 ![](./data/5-4-指标变化.png)
 
@@ -201,20 +200,20 @@ y= tensor(0.) ; x= tensor(1.0000)
 
 ```
 
-### 三，可视化参数分布
+### Three, visual parameter distribution
 
 
-如果需要对模型的参数(一般非标量)在训练过程中的变化进行可视化，可以使用 writer.add_histogram。
+If you need to visualize the changes of model parameters (generally non-scalar) during training, you can use writer.add_histogram.
 
-它能够观测张量值分布的直方图随训练步骤的变化趋势。
+It can observe the trend of the histogram of the tensor value distribution with the training steps.
 
 ```python
-import numpy as np 
-import torch 
+import numpy as np
+import torch
 from torch.utils.tensorboard import SummaryWriter
 
 
-# 创建正态分布的张量模拟参数矩阵
+# Create a normal distribution tensor simulation parameter matrix
 def norm(mean,std):
     t = std*torch.randn((100,20))+mean
     return t
@@ -228,25 +227,24 @@ writer.close()
     
 
 ```
-
 ![](./data/5-4-张量分布.png)
 
 ```python
 
 ```
 
-### 四，可视化原始图像
+### Fourth, visualize the original image
 
 
-如果我们做图像相关的任务，也可以将原始的图片在tensorboard中进行可视化展示。
+If we do image-related tasks, we can also visualize the original image in tensorboard.
 
-如果只写入一张图片信息，可以使用writer.add_image。
+If you only write a piece of image information, you can use writer.add_image.
 
-如果要写入多张图片信息，可以使用writer.add_images。
+If you want to write multiple image information, you can use writer.add_images.
 
-也可以用 torchvision.utils.make_grid将多张图片拼成一张图片，然后用writer.add_image写入。
+You can also use torchvision.utils.make_grid to combine multiple pictures into one picture, and then write it with writer.add_image.
 
-注意，传入的是代表图片信息的Pytorch中的张量数据。
+Note that what is passed in is the tensor data in Pytorch representing the image information.
 
 
 ```python
@@ -254,7 +252,7 @@ import torch
 import torchvision
 from torch import nn
 from torch.utils.data import Dataset,DataLoader
-from torchvision import transforms,datasets 
+from torchvision import transforms,datasets
 
 
 transform_train = transforms.Compose(
@@ -266,31 +264,31 @@ transform_valid = transforms.Compose(
 
 ```python
 ds_train = datasets.ImageFolder("./data/cifar2/train/",
-            transform = transform_train,target_transform= lambda t:torch.tensor([t]).float())
+            transform = transform_train,target_transform = lambda t:torch.tensor([t]).float())
 ds_valid = datasets.ImageFolder("./data/cifar2/test/",
-            transform = transform_train,target_transform= lambda t:torch.tensor([t]).float())
+            transform = transform_train,target_transform = lambda t:torch.tensor([t]).float())
 
 print(ds_train.class_to_idx)
 
-dl_train = DataLoader(ds_train,batch_size = 50,shuffle = True,num_workers=3)
-dl_valid = DataLoader(ds_valid,batch_size = 50,shuffle = True,num_workers=3)
+dl_train = DataLoader(ds_train, batch_size = 50, shuffle = True, num_workers=3)
+dl_valid = DataLoader(ds_valid, batch_size = 50, shuffle = True, num_workers=3)
 
 dl_train_iter = iter(dl_train)
 images, labels = dl_train_iter.next()
 
-# 仅查看一张图片
+# View only one picture
 writer = SummaryWriter('./data/tensorboard')
 writer.add_image('images[0]', images[0])
 writer.close()
 
-# 将多张图片拼接成一张图片，中间用黑色网格分割
+# Mosaic multiple pictures into one picture, separated by a black grid
 writer = SummaryWriter('./data/tensorboard')
 # create grid of images
 img_grid = torchvision.utils.make_grid(images)
 writer.add_image('image_grid', img_grid)
 writer.close()
 
-# 将多张图片直接写入
+# Write multiple pictures directly
 writer = SummaryWriter('./data/tensorboard')
 writer.add_images("images",images,global_step = 0)
 writer.close()
@@ -310,12 +308,12 @@ writer.close()
 
 ```
 
-### 五，可视化人工绘图
+### Five, visual manual drawing
 
 
-如果我们将matplotlib绘图的结果再 tensorboard中展示，可以使用 add_figure.
+If we display the results of matplotlib drawing in tensorboard, we can use add_figure.
 
-注意，和writer.add_image不同的是，writer.add_figure需要传入matplotlib的figure对象。
+Note that, unlike writer.add_image, writer.add_figure needs to pass in the figure object of matplotlib.
 
 
 ```python
@@ -323,7 +321,7 @@ import torch
 import torchvision
 from torch import nn
 from torch.utils.data import Dataset,DataLoader
-from torchvision import transforms,datasets 
+from torchvision import transforms,datasets
 
 
 transform_train = transforms.Compose(
@@ -332,9 +330,9 @@ transform_valid = transforms.Compose(
     [transforms.ToTensor()])
 
 ds_train = datasets.ImageFolder("./data/cifar2/train/",
-            transform = transform_train,target_transform= lambda t:torch.tensor([t]).float())
+            transform = transform_train,target_transform = lambda t:torch.tensor([t]).float())
 ds_valid = datasets.ImageFolder("./data/cifar2/test/",
-            transform = transform_train,target_transform= lambda t:torch.tensor([t]).float())
+            transform = transform_train,target_transform = lambda t:torch.tensor([t]).float())
 
 print(ds_train.class_to_idx)
 ```
@@ -345,10 +343,10 @@ print(ds_train.class_to_idx)
 
 ```python
 %matplotlib inline
-%config InlineBackend.figure_format = 'svg'
-from matplotlib import pyplot as plt 
+%config InlineBackend.figure_format ='svg'
+from matplotlib import pyplot as plt
 
-figure = plt.figure(figsize=(8,8)) 
+figure = plt.figure(figsize=(8,8))
 for i in range(9):
     img,label = ds_train[i]
     img = img.permute(1,2,0)
@@ -356,7 +354,7 @@ for i in range(9):
     ax.imshow(img.numpy())
     ax.set_title("label = %d"%label.item())
     ax.set_xticks([])
-    ax.set_yticks([]) 
+    ax.set_yticks([])
 plt.show()
 ```
 
@@ -371,13 +369,15 @@ writer.close()
 ![](./data/5-4-可视化人工绘图.png)
 
 
-**如果本书对你有所帮助，想鼓励一下作者，记得给本项目加一颗星星star⭐️，并分享给你的朋友们喔😊!** 
+**If this book is helpful to you and want to encourage the author, remember to add a star⭐️ to this project and share it with your friends 😊!**
 
-如果对本书内容理解上有需要进一步和作者交流的地方，欢迎在公众号"算法美食屋"下留言。作者时间和精力有限，会酌情予以回复。
+If you need to further communicate with the author on the understanding of the content of this book, please leave a message under the public account "Algorithm Food House". The author has limited time and energy and will respond as appropriate.
 
-也可以在公众号后台回复关键字：**加群**，加入读者交流群和大家讨论。
+You can also reply to keywords in the background of the official account: **Add group**, join the reader exchange group and discuss with you.
+
 
 ![算法美食屋logo.png](./data/算法美食屋二维码.jpg)
+
 
 ```python
 
