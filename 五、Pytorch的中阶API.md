@@ -1,23 +1,23 @@
-# 五、Pytorch的中阶API
+# Five, Pytorch's mid-level API
 
-我们将主要介绍Pytorch的如下中阶API
+We will mainly introduce the following intermediate APIs of Pytorch
 
-* 数据管道
+* Data pipeline
 
-* 模型层
+* Model layer
 
-* 损失函数
+* Loss function
 
-* TensorBoard可视化
+* TensorBoard visualization
 
-如果把模型比作一个房子，那么中阶API就是【模型之墙】。
+If the model is compared to a house, then the mid-level API is [Wall of Models].
 
 
-**如果本书对你有所帮助，想鼓励一下作者，记得给本项目加一颗星星star⭐️，并分享给你的朋友们喔😊!** 
+**If this book is helpful to you and want to encourage the author, remember to add a star to this project, and share it with your friends 😊!**
 
-如果对本书内容理解上有需要进一步和作者交流的地方，欢迎在公众号"算法美食屋"下留言。作者时间和精力有限，会酌情予以回复。
+If you need to further communicate with the author on the understanding of the content of this book, please leave a message under the public account "Algorithm Food House". The author has limited time and energy and will respond as appropriate.
 
-也可以在公众号后台回复关键字：**加群**，加入读者交流群和大家讨论。
+You can also reply to the keyword in the background of the official account: **Add group**, join the reader exchange group and discuss with you.
 
 ![算法美食屋logo.png](./data/算法美食屋二维码.jpg)
 
