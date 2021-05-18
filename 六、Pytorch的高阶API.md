@@ -1,22 +1,22 @@
-# 六、Pytorch的高阶API
+# Six, Pytorch's high-level API
 
-Pytorch没有官方的高阶API。一般通过nn.Module来构建模型并编写自定义训练循环。
+Pytorch does not have an official high-level API. Generally, nn.Module is used to build a model and write a custom training loop.
 
-为了更加方便地训练模型，作者编写了仿keras的Pytorch模型接口：torchkeras， 作为Pytorch的高阶API。
+In order to train the model more conveniently, the author wrote a Pytorch model interface imitating keras: torchkeras, as a high-level API of Pytorch.
 
-本章我们主要详细介绍Pytorch的高阶API如下相关的内容。
+In this chapter, we mainly introduce the following related content of Pytorch's high-level API.
 
-* 构建模型的3种方法(继承nn.Module基类，使用nn.Sequential，辅助应用模型容器)
+* 3 ways to build a model (inherit the nn.Module base class, use nn.Sequential, and assist in the application of the model container)
 
-* 训练模型的3种方法(脚本风格，函数风格，torchkeras.Model类风格)
+* 3 methods of training model (script style, function style, torchkeras.Model class style)
 
-* 使用GPU训练模型(单GPU训练，多GPU训练)
+* Use GPU training model (single GPU training, multi-GPU training)
 
 
-**如果本书对你有所帮助，想鼓励一下作者，记得给本项目加一颗星星star⭐️，并分享给你的朋友们喔😊!** 
+**If this book is helpful to you and want to encourage the author, remember to add a star to this project, and share it with your friends 😊!**
 
-如果对本书内容理解上有需要进一步和作者交流的地方，欢迎在公众号"算法美食屋"下留言。作者时间和精力有限，会酌情予以回复。
+If you need to further communicate with the author on the understanding of the content of this book, please leave a message under the public account "Algorithm Food House". The author has limited time and energy and will respond as appropriate.
 
-也可以在公众号后台回复关键字：**加群**，加入读者交流群和大家讨论。
+You can also reply to the keyword in the background of the official account: **Add group**, join the reader exchange group and discuss with you.
 
 ![算法美食屋logo.png](./data/算法美食屋二维码.jpg)
