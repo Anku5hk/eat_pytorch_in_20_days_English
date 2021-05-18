@@ -1,34 +1,34 @@
-# 一、Pytorch的建模流程
+# One, Pytorch's modeling process
 
 <!-- #region -->
-使用Pytorch实现神经网络模型的一般流程包括：
+The general process of using Pytorch to implement a neural network model includes:
 
-1，准备数据
+1. Prepare the data
 
-2，定义模型
+2. Define the model
 
-3，训练模型
+3. Training the model
 
-4，评估模型
+4. Evaluation model
 
-5，使用模型
+5. Use the model
 
-6，保存模型。
+6. Save the model.
 
 
-**对新手来说，其中最困难的部分实际上是准备数据过程。** 
+**For novices, the most difficult part is actually the process of preparing the data. **
 
-我们在实践中通常会遇到的数据类型包括结构化数据，图片数据，文本数据，时间序列数据。
+The types of data we usually encounter in practice include structured data, image data, text data, and time series data.
 
-我们将分别以titanic生存预测问题，cifar2图片分类问题，imdb电影评论分类问题，国内新冠疫情结束时间预测问题为例，演示应用Pytorch对这四类数据的建模方法。
+We will use the titanic survival prediction problem, the cifar2 picture classification problem, the imdb movie review classification problem, and the domestic new crown epidemic end time prediction problem as examples to demonstrate the application of Pytorch's modeling method for these four types of data.
 
 
 <!-- #endregion -->
 
-**如果本书对你有所帮助，想鼓励一下作者，记得给本项目加一颗星星star⭐️，并分享给你的朋友们喔😊!** 
+**If this book is helpful to you and want to encourage the author, remember to add a star⭐️ to this project and share it with your friends 😊!**
 
-如果对本书内容理解上有需要进一步和作者交流的地方，欢迎在公众号"算法美食屋"下留言。作者时间和精力有限，会酌情予以回复。
+If you need to further communicate with the author on the understanding of the content of this book, please leave a message under the public account "Algorithm Food House". The author has limited time and energy and will respond as appropriate.
 
-也可以在公众号后台回复关键字：**加群**，加入读者交流群和大家讨论。
+You can also reply to the keyword in the background of the official account: **Add group**, join the reader exchange group and discuss with you.
 
 ![算法美食屋logo.png](./data/算法美食屋二维码.jpg)
