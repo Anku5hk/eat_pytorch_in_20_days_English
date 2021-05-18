@@ -1,30 +1,30 @@
-# 四、Pytorch的低阶API
+# Four, Pytorch's low-level API
 
-Pytorch的低阶API主要包括张量操作，动态计算图和自动微分。
+Pytorch's low-level API mainly includes tensor operations, dynamic calculation graphs and automatic differentiation.
 
-如果把模型比作一个房子，那么低阶API就是【模型之砖】。
+If the model is compared to a house, then the low-level API is [the brick of the model].
 
-在低阶API层次上，可以把Pytorch当做一个增强版的numpy来使用。
+At the low-level API level, Pytorch can be used as an enhanced version of numpy.
 
-Pytorch提供的方法比numpy更全面，运算速度更快，如果需要的话，还可以使用GPU进行加速。
+The method provided by Pytorch is more comprehensive than numpy, and the calculation speed is faster. If necessary, you can also use the GPU for acceleration.
 
-前面几章我们对低阶API已经有了一个整体的认识，本章我们将重点详细介绍张量操作和动态计算图。
-
-
-张量的操作主要包括张量的结构操作和张量的数学运算。
-
-张量结构操作诸如：张量创建，索引切片，维度变换，合并分割。
-
-张量数学运算主要有：标量运算，向量运算，矩阵运算。另外我们会介绍张量运算的广播机制。
-
-动态计算图我们将主要介绍动态计算图的特性，计算图中的Function，计算图与反向传播。
+In the previous chapters, we already have an overall understanding of low-level APIs. In this chapter, we will focus on detailing tensor operations and dynamic calculation graphs.
 
 
+The operations of tensors mainly include structural operations of tensors and mathematical operations of tensors.
 
-**如果本书对你有所帮助，想鼓励一下作者，记得给本项目加一颗星星star⭐️，并分享给你的朋友们喔😊!** 
+Tensor structure operations such as: tensor creation, index slicing, dimension transformation, merge and split.
 
-如果对本书内容理解上有需要进一步和作者交流的地方，欢迎在公众号"算法美食屋"下留言。作者时间和精力有限，会酌情予以回复。
+Tensor mathematical operations mainly include: scalar operations, vector operations, and matrix operations. In addition, we will introduce the broadcasting mechanism of tensor operations.
 
-也可以在公众号后台回复关键字：**加群**，加入读者交流群和大家讨论。
+Dynamic calculation graph We will mainly introduce the characteristics of dynamic calculation graph, function in calculation graph, calculation graph and backpropagation.
+
+
+
+**If this book is helpful to you and want to encourage the author, remember to add a star⭐️ to this project and share it with your friends 😊!**
+
+If you need to further communicate with the author on the understanding of the content of this book, please leave a message under the public account "Algorithm Food House". The author has limited time and energy and will respond as appropriate.
+
+You can also reply to the keyword in the background of the official account: **Add group**, join the reader exchange group and discuss with you.
 
 ![算法美食屋logo.png](./data/算法美食屋二维码.jpg)
