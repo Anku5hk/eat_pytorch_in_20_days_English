@@ -129,8 +129,8 @@ Of course, this book is also very suitable as a reference for Pytorch's tool man
 |day13|  [4-3,nn.functional and nn.Module](./4-3,nn.functional和nn.Module.md)  | ⭐️⭐️⭐️⭐️   |   1hour    |✅ |
 |&nbsp; |[**5 Pytorch's mid-level API**](./五、Pytorch的中阶API.md) |  ⭐️  | 0hour|✅ |
 |day14|  [5-1,Dataset and DataLoader](./5-1,Dataset和DataLoader.md)   | ⭐️⭐️⭐️⭐️⭐️   |   2hour    | ✅   |
-|day15|  [5-2,Model layer](./5-3,模型层.md)  | ⭐️⭐️⭐️   |   1hour    |✅  |
-|day16|  [5-3,Loss function](./5-4,损失函数.md)    | ⭐️⭐️⭐️   |   1hour    |✅   |
+|day15|  [5-2,Model layer](./5-2,模型层.md)  | ⭐️⭐️⭐️   |   1hour    |✅  |
+|day16|  [5-3,Loss function](./5-3,损失函数.md)    | ⭐️⭐️⭐️   |   1hour    |✅   |
 |day17|  [5-4,TensorBoard visualization](./5-4,TensorBoard可视化.md)    | ⭐️⭐️⭐️   |   1hour    | ✅   |
 |&nbsp; |[**6 Pytorch's high-level API**](./六、Pytorch的高阶API.md)|    ⭐️ | 0hour|✅  |
 |day18|  [6-1,3 ways to build a model](./6-1,构建模型的3种方法.md)   | ⭐️⭐️⭐️⭐️    |   1hour    |✅   |
